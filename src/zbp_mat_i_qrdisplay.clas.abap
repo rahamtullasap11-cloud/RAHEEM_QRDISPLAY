@@ -1,0 +1,5 @@
+CLASS zbp_mat_i_qrdisplay DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zmat_i_qrdisplay.
+ENDCLASS.
+
+CLASS zbp_mat_i_qrdisplay IMPLEMENTATION.
+ENDCLASS.

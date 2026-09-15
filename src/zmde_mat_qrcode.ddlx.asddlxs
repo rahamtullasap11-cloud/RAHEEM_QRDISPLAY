@@ -1,0 +1,77 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Qrcode',
+    typeNamePlural: 'Qrcodes',
+    title: {
+        type: #STANDARD,
+        label: 'Material QR Code',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'Material'
+    },
+    description: {
+        type: #STANDARD,
+        label: 'Material QR Code',
+        value: 'Materialdescription'
+    },
+    imageUrl: 'QrUrl'
+}
+annotate entity zmat_c_qrdisplay with
+{
+
+  @UI.facet: [{
+      id: 'qrcode',
+      purpose: #STANDARD,
+      position: 10,
+      importance: #HIGH,
+      label: 'Material QR Code',
+      type: #IDENTIFICATION_REFERENCE
+  }]
+  @UI.lineItem: [
+       {
+           position: 10,
+           type: #FOR_ACTION,
+           dataAction: 'QRGEN',
+           label: 'Generate QR'
+
+       }
+   ]
+  @UI.identification: [{ position: 10, label: 'MatrialNumber' }]
+
+  Material;
+
+  @UI.lineItem: [
+      {
+          position: 20
+      }
+  ]
+  @UI.identification: [{ position: 20, label: 'MatrialDesciption' }]
+  Materialdescription;
+
+  @UI.lineItem: [
+      {
+          position: 30
+      }
+  ]
+  @UI.identification: [{ position: 30, label: 'Matrial Type' }]
+  Mattype;
+
+  @UI.lineItem: [
+      {
+          position: 40
+      }
+  ]
+  @UI.identification: [{ position: 40, label: 'QR Text'  }]
+  QrText;
+
+  @UI.lineItem: [
+      {
+          position: 50,
+          importance: #HIGH,
+          iconUrl: 'QrUrl' 
+      }
+  ]
+  @UI.identification: [{ position: 50, label: 'QR Url', importance: #HIGH  }]
+
+  QrUrl;
+
+}

@@ -1,0 +1,33 @@
+managed implementation in class zbp_mat_i_qrdisplay unique;
+strict ( 2 );
+with draft;
+define behavior for zmat_i_qrdisplay alias QRcode
+persistent table zmat_qr
+draft table zdf_mat_qr
+lock master total etag lastchangedat
+authorization master ( instance )
+etag master lastchangedat
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly : update ) Material;
+  action QRGEN result [1] $self;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft determine action Prepare;
+  draft action Resume;
+
+
+  mapping for zmat_qr
+    {
+      Material            = material;
+      Materialdescription = materialdescription;
+      Mattype             = mattype;
+      QrText              = qr_text;
+      QrUrl               = qr_url;
+      lastchangedat       = lastchangedat;
+    }
+}

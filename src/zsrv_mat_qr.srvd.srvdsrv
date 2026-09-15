@@ -1,0 +1,4 @@
+@EndUserText.label: 'materil qr code display'
+define service Zsrv_mat_qr {
+  expose zmat_c_qrdisplay as MATQRDISP;
+}
